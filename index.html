@@ -1,0 +1,1186 @@
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Pawan Padmakar Abhyankar - Computer Professional"
+    />
+    <title>Pawan Padmakar Abhyankar | Portfolio</title>
+
+    <style>
+      :root {
+        --bg: #070b16;
+        --bg2: #0c1224;
+        --card: rgba(255, 255, 255, 0.075);
+        --card2: rgba(255, 255, 255, 0.045);
+        --border: rgba(255, 255, 255, 0.13);
+        --text: #f4f7ff;
+        --muted: #aab3c7;
+        --accent: #7c5cff;
+        --accent2: #00d9ff;
+        --accent3: #ff5ca8;
+        --success: #36e39b;
+        --shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+        --radius: 22px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(124, 92, 255, 0.18),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(0, 217, 255, 0.12),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 92, 168, 0.08),
+            transparent 30%
+          ),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: auto;
+      }
+
+      /* NAVIGATION */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(7, 11, 22, 0.72);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid transparent;
+        transition: 0.3s;
+      }
+
+      nav.scrolled {
+        border-bottom-color: var(--border);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      .nav-inner {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+
+      .logo span {
+        color: var(--accent2);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.25s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: white;
+      }
+
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 0;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 120px 0 70px;
+        position: relative;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border: 1px solid var(--border);
+        background: var(--card2);
+        border-radius: 999px;
+        color: var(--accent2);
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--success);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--success);
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 7vw, 76px);
+        line-height: 1.05;
+        letter-spacing: -3px;
+        margin-bottom: 22px;
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2),
+          var(--accent3)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 650px;
+        font-size: 17px;
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 13px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-weight: 700;
+        font-size: 14px;
+        transition: 0.25s;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), #5940e8);
+        border-color: transparent;
+        box-shadow: 0 10px 30px rgba(124, 92, 255, 0.25);
+      }
+
+      .btn-secondary {
+        background: var(--card);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      /* PROFILE CARD */
+      .profile-card {
+        position: relative;
+        padding: 30px;
+        border-radius: var(--radius);
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 255, 255, 0.045)
+        );
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+      }
+
+      .profile-card::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background: var(--accent2);
+        filter: blur(90px);
+        opacity: 0.15;
+        top: -70px;
+        right: -50px;
+      }
+
+      .profile-card::after {
+        content: "";
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        background: var(--accent);
+        filter: blur(90px);
+        opacity: 0.18;
+        bottom: -70px;
+        left: -50px;
+      }
+
+      .profile-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      /* PROFILE IMAGE */
+      .avatar {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 24px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow:
+          0 0 0 4px rgba(255, 255, 255, 0.08),
+          0 0 55px rgba(0, 217, 255, 0.18);
+        position: relative;
+        z-index: 1;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+
+        /*
+    Adjust this percentage if the face needs moving:
+    25% = higher part of photo
+    35% = slightly above center
+    50% = center
+  */
+        object-position: center 30%;
+      }
+
+      .profile-card h2 {
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+
+      .role {
+        color: var(--accent2);
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .profile-info {
+        display: grid;
+        gap: 11px;
+        text-align: left;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .profile-info div {
+        padding: 11px 13px;
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 18px;
+        color: var(--success);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .status::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--success);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        margin-bottom: 45px;
+      }
+
+      .section-title small {
+        color: var(--accent2);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-title h2 {
+        font-size: 42px;
+        line-height: 1.1;
+        margin-top: 8px;
+      }
+
+      .section-title p {
+        color: var(--muted);
+        max-width: 650px;
+        margin-top: 12px;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(15px);
+      }
+
+      .quote {
+        font-size: 22px;
+        line-height: 1.5;
+        font-weight: 700;
+      }
+
+      .quote span {
+        color: var(--accent2);
+      }
+
+      .facts {
+        display: grid;
+        gap: 15px;
+      }
+
+      .fact {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .fact:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .fact span:first-child {
+        color: var(--muted);
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .skill-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 25px;
+        transition: 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(124, 92, 255, 0.5);
+      }
+
+      .skill-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(124, 92, 255, 0.14);
+        font-size: 23px;
+        margin-bottom: 18px;
+      }
+
+      .skill-card h3 {
+        margin-bottom: 8px;
+      }
+
+      .skill-card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* EXPERIENCE */
+      .timeline {
+        position: relative;
+        margin-left: 15px;
+        padding-left: 30px;
+        border-left: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 35px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent2);
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.7);
+        left: -37px;
+        top: 8px;
+      }
+
+      .timeline-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 25px;
+      }
+
+      .timeline-card h3 {
+        font-size: 21px;
+      }
+
+      .timeline-card .company {
+        color: var(--accent2);
+        font-weight: 700;
+        margin: 4px 0 12px;
+      }
+
+      .timeline-card p {
+        color: var(--muted);
+      }
+
+      /* EDUCATION */
+      .table-wrap {
+        overflow-x: auto;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 650px;
+      }
+
+      th,
+      td {
+        padding: 17px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      th {
+        color: var(--accent2);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      td {
+        color: var(--muted);
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      /* HOBBIES */
+      .hobbies {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .hobby {
+        padding: 14px 18px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--muted);
+      }
+
+      /* CONTACT */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 17px;
+        padding: 20px;
+        transition: 0.25s;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .contact-icon {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        background: rgba(0, 217, 255, 0.1);
+        font-size: 20px;
+      }
+
+      .contact-card small {
+        display: block;
+        color: var(--muted);
+        margin-bottom: 3px;
+      }
+
+      .contact-card strong {
+        font-size: 15px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* PARTICLES */
+      .particle {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: -1;
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* MOBILE */
+      @media (max-width: 850px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .hero {
+          padding-top: 110px;
+        }
+
+        .hero h1 {
+          font-size: 48px;
+        }
+
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: rgba(7, 11, 22, 0.96);
+          backdrop-filter: blur(18px);
+          border-bottom: 1px solid var(--border);
+          padding: 20px;
+          display: none;
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .hero h1 {
+          font-size: 40px;
+          letter-spacing: -2px;
+        }
+
+        .hero p {
+          font-size: 15px;
+        }
+
+        section {
+          padding: 75px 0;
+        }
+
+        .section-title h2 {
+          font-size: 34px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-card {
+          padding: 25px 20px;
+        }
+
+        .avatar {
+          width: 135px;
+          height: 135px;
+        }
+      }
+
+      /* REDUCED MOTION */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+      <div class="container nav-inner">
+        <a href="#home" class="logo"> Pawan<span>.</span> </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Welcome to my portfolio
+          </div>
+
+          <h1>
+            Hi, I'm <span class="gradient-text">Pawan.</span><br />
+            Computer Professional.
+          </h1>
+
+          <p>
+            A dedicated and hardworking computer professional with experience in
+            computer operations, typing, publication work and office
+            responsibilities. I believe in continuous learning, accuracy and
+            completing every task with responsibility.
+          </p>
+
+          <div class="buttons">
+            <a href="#about" class="btn btn-primary"> Explore my journey → </a>
+
+            <a href="#contact" class="btn btn-secondary"> Get in touch </a>
+          </div>
+        </div>
+
+        <!-- PROFILE -->
+        <div class="profile-card reveal" id="tiltCard">
+          <div class="profile-content">
+            <div class="avatar">
+              <img src="pawan.jpg" alt="Pawan Padmakar Abhyankar" />
+            </div>
+
+            <h2>Pawan Padmakar Abhyankar</h2>
+
+            <div class="role">Computer Professional</div>
+
+            <div class="profile-info">
+              <div>📍 Amravati, Maharashtra</div>
+
+              <div>✉️ abhyankar00@gmail.com</div>
+
+              <div>📞 +91 7709913607</div>
+            </div>
+
+            <div class="status">Available for opportunities</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <small>01 — About Me</small>
+          <h2>Who I Am</h2>
+          <p>
+            A little more about my background, objectives and professional
+            approach.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <div class="quote">
+              "My objective is to work in an environment where I can
+              <span>learn, grow and contribute</span> through my skills and
+              dedication."
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="facts">
+              <div class="fact">
+                <span>Name</span>
+                <strong>Pawan Padmakar Abhyankar</strong>
+              </div>
+
+              <div class="fact">
+                <span>Profession</span>
+                <strong>Computer Professional</strong>
+              </div>
+
+              <div class="fact">
+                <span>Location</span>
+                <strong>Amravati, Maharashtra</strong>
+              </div>
+
+              <div class="fact">
+                <span>Experience</span>
+                <strong>Computer Operator</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title reveal">
+          <small>02 — Skills</small>
+          <h2>What I Do</h2>
+          <p>Skills and qualities that I bring to my professional work.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="skill-icon">💻</div>
+            <h3>Computer Skills</h3>
+            <p>
+              Comfortable with computer operations, office work, document
+              handling and day-to-day computer tasks.
+            </p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">⌨️</div>
+            <h3>Typing</h3>
+            <p>
+              Good typing ability with a focus on accuracy, speed and proper
+              document preparation.
+            </p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">🎯</div>
+            <h3>Work Ethic</h3>
+            <p>
+              Responsible, hardworking and committed to completing assigned work
+              carefully and on time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title reveal">
+          <small>03 — Experience</small>
+          <h2>My Experience</h2>
+          <p>My professional experience and workplace responsibilities.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-card">
+              <h3>Computer Operator</h3>
+
+              <div class="company">Aditya Publication</div>
+
+              <p>
+                Worked as a Computer Operator handling computer-based office and
+                publication-related tasks. Responsibilities included typing,
+                document preparation, data handling and supporting day-to-day
+                computer operations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title reveal">
+          <small>04 — Education</small>
+          <h2>Education</h2>
+          <p>My academic background.</p>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr>
+                <th>Qualification</th>
+                <th>Board</th>
+                <th>Year</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>BOOM</td>
+                <td>Amravati</td>
+                <td>1st Year Appeared</td>
+                <td>—</td>
+              </tr>
+
+              <tr>
+                <td>H.S.C</td>
+                <td>Amravati</td>
+                <td>2015</td>
+                <td>49.85%</td>
+              </tr>
+
+              <tr>
+                <td>S.S.C</td>
+                <td>Amravati</td>
+                <td>2010</td>
+                <td>52.20%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section>
+      <div class="container">
+        <div class="section-title reveal">
+          <small>05 — Interests</small>
+          <h2>Hobbies</h2>
+          <p>Things I enjoy in my free time.</p>
+        </div>
+
+        <div class="hobbies reveal">
+          <div class="hobby">📚 Reading Books</div>
+
+          <div class="hobby">📰 Reading Newspapers</div>
+
+          <div class="hobby">✈️ Travelling</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <small>06 — Contact</small>
+          <h2>Let's Connect</h2>
+          <p>
+            Feel free to contact me for professional opportunities or any other
+            queries.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="mailto:abhyankar00@gmail.com">
+            <div class="contact-icon">✉️</div>
+
+            <div>
+              <small>Email</small>
+              <strong>abhyankar00@gmail.com</strong>
+            </div>
+          </a>
+
+          <a class="contact-card reveal" href="tel:+917709913607">
+            <div class="contact-icon">📞</div>
+
+            <div>
+              <small>Phone</small>
+              <strong>+91 7709913607</strong>
+            </div>
+          </a>
+
+          <div class="contact-card reveal">
+            <div class="contact-icon">📍</div>
+
+            <div>
+              <small>Location</small>
+              <strong>Amravati, Maharashtra</strong>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <div class="contact-icon">💼</div>
+
+            <div>
+              <small>Profession</small>
+              <strong>Computer Professional</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Pawan Padmakar Abhyankar. All rights reserved.
+        <br />
+        Built in one HTML file.
+      </div>
+    </footer>
+
+    <script>
+      /* MOBILE MENU */
+      const menuBtn = document.getElementById("menuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
+
+      /* NAVBAR SCROLL EFFECT */
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      /* ACTIVE NAVIGATION */
+      const sections = document.querySelectorAll("section[id]");
+      const navItems = document.querySelectorAll(".nav-links a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navItems.forEach((link) => {
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + entry.target.id) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-35% 0px -55% 0px",
+        },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      /* SCROLL REVEAL */
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+        },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+
+      /* 3D PROFILE CARD */
+      const tiltCard = document.getElementById("tiltCard");
+
+      if (
+        tiltCard &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        tiltCard.addEventListener("mousemove", (event) => {
+          const rect = tiltCard.getBoundingClientRect();
+
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+          tiltCard.style.transform = `perspective(900px)
+       rotateY(${x * 8}deg)
+       rotateX(${y * -8}deg)
+       translateY(-4px)`;
+        });
+
+        tiltCard.addEventListener("mouseleave", () => {
+          tiltCard.style.transform =
+            "perspective(900px) rotateY(0deg) rotateX(0deg)";
+        });
+      }
+
+      /* FLOATING PARTICLES */
+      function createParticles() {
+        for (let i = 0; i < 35; i++) {
+          const particle = document.createElement("div");
+
+          particle.className = "particle";
+
+          particle.style.left = Math.random() * 100 + "vw";
+
+          particle.style.animationDuration = 8 + Math.random() * 15 + "s";
+
+          particle.style.animationDelay = Math.random() * 10 + "s";
+
+          particle.style.opacity = 0.15 + Math.random() * 0.4;
+
+          document.body.appendChild(particle);
+        }
+      }
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        createParticles();
+      }
+
+      /* CURRENT YEAR */
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+```
